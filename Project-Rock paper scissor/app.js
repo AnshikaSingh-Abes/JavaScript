@@ -7,6 +7,10 @@ const msg = document.querySelector("#msg");
 const userScorePara = document.querySelector("#user-score");
 const compScorePara = document.querySelector("#comp-score");
 
+// Target computer display elements
+const compChoiceDisplay = document.querySelector("#comp-choice-display");
+const compActionText = document.querySelector("#computer-action-text");
+
 const genCompChoice = () => {
   const options = ["rock", "paper", "scissors"];
   const randIdx = Math.floor(Math.random() * 3);
@@ -33,22 +37,23 @@ const showWinner = (userWin, userChoice, compChoice) => {
 };
 
 const playGame = (userChoice) => {
-  //Generate computer choice
+  // Generate computer choice
   const compChoice = genCompChoice();
 
+  // Show the computer's choice image inside the circle
+  compActionText.innerText = "Computer Chose:";
+  compChoiceDisplay.innerHTML = `<img src="./images/${compChoice}.png" alt="${compChoice}" />`;
+  compChoiceDisplay.classList.add("reveal");
+
   if (userChoice === compChoice) {
-    //Draw Game
     drawGame();
   } else {
     let userWin = true;
     if (userChoice === "rock") {
-      //scissors, paper
       userWin = compChoice === "paper" ? false : true;
     } else if (userChoice === "paper") {
-      //rock, scissors
       userWin = compChoice === "scissors" ? false : true;
     } else {
-      //rock, paper
       userWin = compChoice === "rock" ? false : true;
     }
     showWinner(userWin, userChoice, compChoice);

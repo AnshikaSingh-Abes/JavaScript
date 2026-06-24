@@ -8,15 +8,16 @@
   </head>
   <body>
     <h1>Rock Paper Scissors</h1>
+    
     <div class="choices">
       <div class="choice" id="rock">
-        <img src="./images/rock.png" />
+        <img src="./images/rock.png" alt="Rock" />
       </div>
       <div class="choice" id="paper">
-        <img src="./images/paper.png" />
+        <img src="./images/paper.png" alt="Paper" />
       </div>
       <div class="choice" id="scissors">
-        <img src="./images/scissors.png" />
+        <img src="./images/scissors.png" alt="Scissors" />
       </div>
     </div>
 
@@ -31,9 +32,15 @@
       </div>
     </div>
 
+    <div class="computer-hand-box">
+      <p id="computer-action-text">Computer is waiting...</p>
+      <div id="comp-choice-display"></div>
+    </div>
+
     <div class="msg-container">
       <p id="msg">Play your move</p>
     </div>
+
     <script src="app.js"></script>
   </body>
 </html>
